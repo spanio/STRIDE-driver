@@ -5,6 +5,8 @@ from pymodbus.exceptions import ModbusException
 class StrideClient:
     def __init__(self, host, port=502, unit_id=1):
         self.client = ModbusClient(host=host, port=port, unit_id=unit_id)
+        self.chans_in = 8
+        self.channel_names = [f"Thermo Channel {i+1}" for i in range(self.chans_in)]
 
 
     def read_temps(self, count=8):
@@ -81,3 +83,18 @@ class StrideClient:
                 raise Exception(f"Failed to set input type {input_type} for value number {value_number}.")
         else:
             raise Exception("Failed to Connect")
+
+    def get_channel_names(self):
+        return self.channel_names
+    
+    def set_channel_name(self, position, name):
+        """
+        Set the name of a specific channel based on its position.
+
+        Args:
+            position (int): Position of the channel (0-based index).
+            name (str): New name for the channel.
+        """
+        if position < 0 or position >= self.chans_in:
+            raise ValueError(f"Invalid position value. Must be between 0 and {self.chans_in-1}.")
+        self.channel_names[position] = name
