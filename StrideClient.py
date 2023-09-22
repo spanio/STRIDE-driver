@@ -9,7 +9,7 @@ class StrideClient:
         self.channel_names = [f"Thermo Channel {i+1}" for i in range(self.chans_in)]
 
 
-    def read_temps(self, count=8):
+    def read_samples(self, count=8):
         if self.client.open():
             regs = self.client.read_input_registers(40, count)
             
