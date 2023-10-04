@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: StrideModbusDriver
-Version: 0.4.0
+Version: 0.7.0
 Summary: Library for interfacing with STRIDE devices
 Home-page: https://github.com/spanio/STRIDE-driver
 Author: Brian Benchoff
@@ -21,10 +21,24 @@ Description-Content-Type: text/markdown
 To use, include the StrideClient.py file in your project.
 The output of this code is a list of thermocouples 1-8.
 
+# Installation
+
+```
+pip install StrideModbusDriver
+```
+
+# Usage
+
+Import the class with:
+
+```python
+from StrideModbusDriver.StrideClient import StrideClient
+```
+
 # Example
 ```python
 # Import the StrideClient class from the library
-from StrideClient import StrideClient
+from StrideModbusDriver.StrideClient import StrideClient
 
 def main():
     # Initialize the StrideClient with the host IP address

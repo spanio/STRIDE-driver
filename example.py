@@ -1,9 +1,9 @@
 # Import the StrideClient class from the library
-from StrideClient import StrideClient
+from StrideModbusDriver.StrideClient import StrideClient
 
 def main():
     # Initialize the StrideClient with the host IP address
-    modbus_device = StrideClient(host="192.168.1.126")
+    modbus_device = StrideClient(host="192.168.1.127")
     # Make the units Celsius
     modbus_device.write_units('C')
 
@@ -11,7 +11,7 @@ def main():
 
     try:
         # Call the read_firmware function and store the result
-        result = modbus_device.read_temps()
+        result = modbus_device.read_samples()
         # Print the result of the read_firmware function
         print(f"{result}")
     except Exception as e:

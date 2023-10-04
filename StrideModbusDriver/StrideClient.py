@@ -98,3 +98,12 @@ class StrideClient:
         if position < 0 or position >= self.chans_in:
             raise ValueError(f"Invalid position value. Must be between 0 and {self.chans_in-1}.")
         self.channel_names[position] = name
+
+    def start(self):
+        pass
+
+    def stop(self):
+        pass
+
+    def close(self):
+        pass
